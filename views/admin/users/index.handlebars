@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="alert alert-secondary text-center">
+        <h1>Użytkownicy</h1>
+    </div>
+
+    <table class="table table-bordered">
+        <thead class="bg-dark text-center">
+        <tr class="text-white">
+            <th>Imię</th>
+            <th>Nazwisko</th>
+            <th>Email</th>
+            <th>Edycja</th>
+        </tr>
+        </thead>
+        <tbody class="text-center">
+            {{#each users}}
+                <tr>
+                    <td>{{firstName}}</td>
+                    <td>{{lastName}}</td>
+                    <td>{{email}}</td>
+                    <td class="d-flex justify-content-center">
+                    <a href="/admin/users/edit/{{_id}}" class="btn btn-sm btn-warning mr-2">Edytuj</a>
+
+                    <form action="/admin/users/delete/{{_id}}?newMethod=DELETE" method="post">
+                        <button class="btn btn-sm btn-danger" type="submit">Usuń</button>
+                    </form>
+
+                    </td>
+                </tr>
+
+            {{/each}}
+        </tbody>
+    </table>
+
+</div>
